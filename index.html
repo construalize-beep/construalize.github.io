@@ -2,13 +2,25 @@
 <html lang="pt-BR">
 <head>
     <meta charset="UTF-8">
+
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
     <title>Construalize | Construção • Reformas • Gestão de Obras</title>
 
     <meta name="description" content="Construalize — Construção, Reformas e Gestão de Obras. Transformamos sonhos em espaços para chamar de seu.">
 
+    <meta name="keywords" content="construção, reformas, gestão de obras, construtora, reforma residencial, obras, Construalize">
+
+    <meta name="author" content="Construalize">
+
+    <meta name="theme-color" content="#0b0b0b">
+
     <style>
+
+        /* =========================
+           RESET
+        ========================= */
+
         * {
             margin: 0;
             padding: 0;
@@ -26,7 +38,46 @@
             line-height: 1.6;
         }
 
-        /* MENU */
+        a {
+            color: inherit;
+            text-decoration: none;
+        }
+
+        img {
+            max-width: 100%;
+            display: block;
+        }
+
+
+        /* =========================
+           CORES
+        ========================= */
+
+        :root {
+            --preto: #0b0b0b;
+            --preto-2: #111111;
+            --preto-3: #171717;
+            --dourado: #d4af37;
+            --dourado-claro: #e4c65a;
+            --branco: #ffffff;
+            --cinza: #bdbdbd;
+            --cinza-escuro: #222222;
+        }
+
+
+        /* =========================
+           CONTAINER
+        ========================= */
+
+        .container {
+            width: min(1180px, 92%);
+            margin: auto;
+        }
+
+
+        /* =========================
+           HEADER
+        ========================= */
 
         header {
             position: fixed;
@@ -34,343 +85,1028 @@
             left: 0;
             width: 100%;
             z-index: 1000;
-            background: rgba(0, 0, 0, 0.88);
-            border-bottom: 1px solid rgba(212, 175, 55, 0.35);
-            backdrop-filter: blur(10px);
+
+            background: rgba(11, 11, 11, 0.94);
+            backdrop-filter: blur(12px);
+
+            border-bottom: 1px solid rgba(212, 175, 55, 0.15);
         }
 
-        nav {
-            max-width: 1200px;
-            margin: auto;
-            padding: 18px 30px;
+        .nav {
+            min-height: 82px;
+
             display: flex;
-            justify-content: space-between;
             align-items: center;
+            justify-content: space-between;
+            gap: 30px;
         }
 
         .logo {
-            font-size: 25px;
-            font-weight: bold;
+            font-size: 23px;
+            font-weight: 800;
             letter-spacing: 4px;
-            color: #d4af37;
+            color: var(--branco);
+        }
+
+        .logo span {
+            color: var(--dourado);
         }
 
         nav ul {
             list-style: none;
+
             display: flex;
-            gap: 28px;
+            align-items: center;
+            gap: 30px;
         }
 
         nav a {
-            color: white;
-            text-decoration: none;
             font-size: 14px;
+            color: #eeeeee;
+
             transition: 0.3s;
         }
 
         nav a:hover {
-            color: #d4af37;
+            color: var(--dourado);
         }
 
-        /* HERO */
+        .nav-button {
+            border: 1px solid var(--dourado);
+            padding: 11px 18px;
+            border-radius: 3px;
+            color: var(--dourado);
+        }
+
+        .nav-button:hover {
+            background: var(--dourado);
+            color: #000;
+        }
+
+
+        /* =========================
+           HERO
+        ========================= */
 
         .hero {
             min-height: 100vh;
+
             display: flex;
             align-items: center;
-            justify-content: center;
-            text-align: center;
-            padding: 120px 25px 80px;
+
+            position: relative;
+            overflow: hidden;
+
             background:
-                linear-gradient(rgba(0,0,0,0.65), rgba(0,0,0,0.88)),
-                linear-gradient(135deg, #191919, #050505);
+                radial-gradient(circle at 80% 30%, rgba(212,175,55,0.13), transparent 32%),
+                radial-gradient(circle at 15% 80%, rgba(212,175,55,0.07), transparent 30%),
+                linear-gradient(135deg, #080808, #141414);
+        }
+
+        .hero::before {
+            content: "";
+
+            position: absolute;
+            inset: 0;
+
+            background:
+                linear-gradient(90deg, rgba(255,255,255,0.025) 1px, transparent 1px),
+                linear-gradient(rgba(255,255,255,0.025) 1px, transparent 1px);
+
+            background-size: 80px 80px;
+
+            opacity: 0.35;
         }
 
         .hero-content {
-            max-width: 900px;
+            position: relative;
+            z-index: 2;
+
+            max-width: 850px;
+
+            padding-top: 80px;
         }
 
-        .hero small {
-            color: #d4af37;
-            letter-spacing: 4px;
-            font-size: 14px;
+        .hero-small {
+            color: var(--dourado);
+
             text-transform: uppercase;
+
+            font-size: 14px;
+            font-weight: bold;
+
+            letter-spacing: 4px;
+
+            margin-bottom: 25px;
         }
 
         .hero h1 {
-            font-size: clamp(42px, 7vw, 82px);
-            line-height: 1.05;
-            margin: 25px 0;
-            font-weight: 700;
+            font-family: Georgia, "Times New Roman", serif;
+
+            font-size: clamp(46px, 7vw, 82px);
+
+            line-height: 1.02;
+
+            font-weight: 400;
+
+            margin-bottom: 28px;
         }
 
         .hero h1 span {
-            color: #d4af37;
+            color: var(--dourado);
         }
 
-        .hero p {
-            font-size: 20px;
-            max-width: 700px;
-            margin: 0 auto 35px;
-            color: #dddddd;
+        .hero-text {
+            max-width: 690px;
+
+            color: #d1d1d1;
+
+            font-size: 19px;
+
+            line-height: 1.8;
+
+            margin-bottom: 34px;
         }
 
-        .tagline {
-            color: #d4af37;
-            font-size: 18px;
+        .hero-tagline {
+            color: #ffffff;
+
+            font-size: 15px;
+
             letter-spacing: 2px;
+
             margin-bottom: 35px;
         }
 
-        .button {
-            display: inline-block;
-            padding: 15px 30px;
-            border: 1px solid #d4af37;
-            color: #ffffff;
-            text-decoration: none;
-            text-transform: uppercase;
-            letter-spacing: 1px;
+        .hero-tagline span {
+            color: var(--dourado);
+            margin: 0 8px;
+        }
+
+
+        /* =========================
+           BOTÕES
+        ========================= */
+
+        .btn {
+            display: inline-flex;
+
+            align-items: center;
+            justify-content: center;
+
+            padding: 15px 27px;
+
+            border: 1px solid var(--dourado);
+
+            font-size: 14px;
+
             font-weight: bold;
+
+            letter-spacing: 0.5px;
+
             transition: 0.3s;
+
+            cursor: pointer;
         }
 
-        .button:hover {
-            background: #d4af37;
-            color: #000000;
+        .btn-gold {
+            background: var(--dourado);
+            color: #080808;
         }
 
-        /* SEÇÕES */
+        .btn-gold:hover {
+            background: var(--dourado-claro);
+            transform: translateY(-2px);
+        }
+
+        .btn-outline {
+            margin-left: 10px;
+            color: var(--dourado);
+            background: transparent;
+        }
+
+        .btn-outline:hover {
+            background: var(--dourado);
+            color: #000;
+        }
+
+
+        /* =========================
+           SEÇÕES
+        ========================= */
 
         section {
-            padding: 100px 25px;
+            padding: 110px 0;
         }
 
-        .container {
-            max-width: 1100px;
-            margin: auto;
+        .section-label {
+            color: var(--dourado);
+
+            text-transform: uppercase;
+
+            letter-spacing: 3px;
+
+            font-size: 13px;
+
+            font-weight: bold;
+
+            margin-bottom: 16px;
         }
 
         .section-title {
-            text-align: center;
-            margin-bottom: 60px;
+            font-family: Georgia, "Times New Roman", serif;
+
+            font-size: clamp(36px, 5vw, 56px);
+
+            font-weight: 400;
+
+            line-height: 1.15;
+
+            margin-bottom: 25px;
         }
 
         .section-title span {
-            color: #d4af37;
-            font-size: 13px;
-            letter-spacing: 4px;
-            text-transform: uppercase;
+            color: var(--dourado);
         }
 
-        .section-title h2 {
-            font-size: 42px;
-            margin-top: 12px;
+        .section-text {
+            color: var(--cinza);
+
+            max-width: 750px;
+
+            font-size: 17px;
+
+            line-height: 1.9;
         }
 
-        /* SOBRE */
+
+        /* =========================
+           SOBRE
+        ========================= */
 
         .about {
-            background: #111111;
+            background: #101010;
         }
 
-        .about-content {
-            max-width: 850px;
-            margin: auto;
+        .about-grid {
+            display: grid;
+
+            grid-template-columns: 1fr 1fr;
+
+            gap: 80px;
+
+            align-items: center;
+        }
+
+        .about-box {
+            border-left: 2px solid var(--dourado);
+
+            padding-left: 30px;
+        }
+
+        .about-box p {
+            color: #cfcfcf;
+
+            font-size: 17px;
+
+            line-height: 1.9;
+
+            margin-bottom: 22px;
+        }
+
+        .quote {
+            font-family: Georgia, "Times New Roman", serif;
+
+            font-size: 29px;
+
+            line-height: 1.4;
+
+            color: #fff;
+        }
+
+        .quote span {
+            color: var(--dourado);
+        }
+
+
+        /* =========================
+           NÚMEROS
+        ========================= */
+
+        .numbers {
+            background: #0b0b0b;
+
+            border-top: 1px solid #222;
+            border-bottom: 1px solid #222;
+        }
+
+        .numbers-grid {
+            display: grid;
+
+            grid-template-columns: repeat(3, 1fr);
+
+            gap: 30px;
+        }
+
+        .number-box {
             text-align: center;
-            font-size: 18px;
-            color: #d5d5d5;
+
+            padding: 25px;
         }
 
-        .about-content strong {
-            color: #ffffff;
+        .number-box strong {
+            display: block;
+
+            font-family: Georgia, serif;
+
+            font-size: 40px;
+
+            color: var(--dourado);
+
+            margin-bottom: 8px;
         }
 
-        /* SERVIÇOS */
+        .number-box span {
+            color: #aaa;
+
+            font-size: 14px;
+
+            text-transform: uppercase;
+
+            letter-spacing: 1.5px;
+        }
+
+
+        /* =========================
+           SERVIÇOS
+        ========================= */
 
         .services {
-            background: #080808;
+            background: #0b0b0b;
         }
 
-        .cards {
+        .services-header {
+            display: flex;
+
+            justify-content: space-between;
+
+            align-items: end;
+
+            gap: 40px;
+
+            margin-bottom: 55px;
+        }
+
+        .services-grid {
             display: grid;
+
             grid-template-columns: repeat(3, 1fr);
-            gap: 25px;
+
+            gap: 22px;
         }
 
-        .card {
-            padding: 40px 30px;
+        .service-card {
+            position: relative;
+
+            background: linear-gradient(145deg, #171717, #101010);
+
             border: 1px solid #292929;
-            background: #111111;
-            transition: 0.3s;
+
+            padding: 42px 32px;
+
+            min-height: 310px;
+
+            transition: 0.35s;
+
+            overflow: hidden;
         }
 
-        .card:hover {
+        .service-card::after {
+            content: "";
+
+            position: absolute;
+
+            width: 100px;
+            height: 100px;
+
+            right: -40px;
+            bottom: -40px;
+
+            border-radius: 50%;
+
+            border: 1px solid rgba(212,175,55,0.25);
+        }
+
+        .service-card:hover {
             transform: translateY(-7px);
-            border-color: #d4af37;
+
+            border-color: rgba(212,175,55,0.7);
+
+            box-shadow: 0 20px 50px rgba(0,0,0,0.35);
         }
 
-        .card-number {
-            color: #d4af37;
-            font-size: 14px;
+        .service-number {
+            color: var(--dourado);
+
+            font-size: 13px;
+
             letter-spacing: 2px;
+
+            margin-bottom: 35px;
         }
 
-        .card h3 {
-            font-size: 24px;
-            margin: 18px 0;
+        .service-card h3 {
+            font-family: Georgia, serif;
+
+            font-size: 29px;
+
+            font-weight: 400;
+
+            margin-bottom: 18px;
         }
 
-        .card p {
-            color: #bdbdbd;
+        .service-card p {
+            color: #aaa;
+
+            font-size: 15px;
+
+            line-height: 1.8;
         }
 
-        /* PROCESSO */
+
+        /* =========================
+           DIFERENCIAIS
+        ========================= */
+
+        .difference {
+            background: #151515;
+        }
+
+        .difference-grid {
+            display: grid;
+
+            grid-template-columns: 0.9fr 1.1fr;
+
+            gap: 80px;
+
+            align-items: center;
+        }
+
+        .difference-list {
+            display: grid;
+
+            gap: 15px;
+        }
+
+        .difference-item {
+            background: #0d0d0d;
+
+            border: 1px solid #292929;
+
+            padding: 25px 28px;
+
+            display: flex;
+
+            gap: 20px;
+
+            align-items: flex-start;
+        }
+
+        .difference-icon {
+            color: var(--dourado);
+
+            font-size: 22px;
+
+            min-width: 25px;
+        }
+
+        .difference-item h3 {
+            font-size: 18px;
+
+            margin-bottom: 7px;
+        }
+
+        .difference-item p {
+            color: #999;
+
+            font-size: 14px;
+
+            line-height: 1.7;
+        }
+
+
+        /* =========================
+           PROCESSO
+        ========================= */
 
         .process {
-            background: #111111;
+            background: #0b0b0b;
         }
 
-        .steps {
+        .process-grid {
             display: grid;
+
             grid-template-columns: repeat(3, 1fr);
-            gap: 25px;
+
+            gap: 1px;
+
+            background: #292929;
+
+            margin-top: 55px;
         }
 
-        .step {
-            text-align: center;
-            padding: 30px;
+        .process-item {
+            background: #0b0b0b;
+
+            padding: 35px 30px;
+
+            min-height: 200px;
         }
 
-        .step-number {
-            width: 55px;
-            height: 55px;
-            border: 1px solid #d4af37;
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            margin: 0 auto 20px;
-            color: #d4af37;
-            font-weight: bold;
+        .process-number {
+            font-family: Georgia, serif;
+
+            color: var(--dourado);
+
+            font-size: 34px;
+
+            margin-bottom: 20px;
         }
 
-        .step h3 {
+        .process-item h3 {
+            font-size: 18px;
+
             margin-bottom: 10px;
         }
 
-        .step p {
-            color: #aaa;
+        .process-item p {
+            color: #999;
+
+            font-size: 14px;
+
+            line-height: 1.7;
         }
 
-        /* DIFERENCIAL */
 
-        .difference {
-            background: #080808;
+        /* =========================
+           PROJETOS
+        ========================= */
+
+        .projects {
+            background: #111111;
+        }
+
+        .projects-grid {
+            display: grid;
+
+            grid-template-columns: 1.4fr 1fr 1fr;
+
+            gap: 15px;
+
+            margin-top: 55px;
+        }
+
+        .project-card {
+            min-height: 270px;
+
+            position: relative;
+
+            overflow: hidden;
+
+            background:
+                linear-gradient(135deg, #242424, #111111);
+
+            border: 1px solid #2c2c2c;
+
+            display: flex;
+
+            align-items: end;
+        }
+
+        .project-card:first-child {
+            min-height: 555px;
+        }
+
+        .project-card::before {
+            content: "";
+
+            position: absolute;
+
+            inset: 0;
+
+            background:
+                linear-gradient(
+                    to top,
+                    rgba(0,0,0,0.9),
+                    rgba(0,0,0,0.05)
+                );
+        }
+
+        .project-content {
+            position: relative;
+
+            z-index: 2;
+
+            padding: 28px;
+        }
+
+        .project-content small {
+            color: var(--dourado);
+
+            text-transform: uppercase;
+
+            letter-spacing: 2px;
+
+            font-size: 11px;
+        }
+
+        .project-content h3 {
+            font-family: Georgia, serif;
+
+            font-size: 25px;
+
+            font-weight: 400;
+
+            margin-top: 8px;
+        }
+
+        .projects-note {
+            margin-top: 20px;
+
+            color: #777;
+
+            font-size: 13px;
+        }
+
+
+        /* =========================
+           CTA
+        ========================= */
+
+        .cta {
+            padding: 110px 0;
+
+            background:
+                radial-gradient(
+                    circle at center,
+                    rgba(212,175,55,0.13),
+                    transparent 50%
+                ),
+                #0a0a0a;
+
             text-align: center;
+
+            border-top: 1px solid #222;
+            border-bottom: 1px solid #222;
         }
 
-        .difference-text {
-            max-width: 850px;
-            margin: auto;
-            font-size: 23px;
-            color: #ddd;
+        .cta h2 {
+            font-family: Georgia, serif;
+
+            font-size: clamp(38px, 5vw, 60px);
+
+            font-weight: 400;
+
+            margin-bottom: 20px;
         }
 
-        .difference-text strong {
-            color: #d4af37;
+        .cta h2 span {
+            color: var(--dourado);
         }
 
-        /* CONTATO */
+        .cta p {
+            color: #aaa;
+
+            max-width: 680px;
+
+            margin: 0 auto 35px;
+
+            font-size: 17px;
+
+            line-height: 1.8;
+        }
+
+
+        /* =========================
+           CONTATO
+        ========================= */
 
         .contact {
             background: #111111;
-            text-align: center;
         }
 
-        .contact p {
-            color: #bbb;
-            margin-bottom: 12px;
+        .contact-grid {
+            display: grid;
+
+            grid-template-columns: 1fr 1fr;
+
+            gap: 80px;
+        }
+
+        .contact-info {
+            display: grid;
+
+            gap: 18px;
+
+            margin-top: 35px;
+        }
+
+        .contact-item {
+            border-bottom: 1px solid #2b2b2b;
+
+            padding-bottom: 18px;
+        }
+
+        .contact-item small {
+            display: block;
+
+            color: var(--dourado);
+
+            text-transform: uppercase;
+
+            letter-spacing: 2px;
+
+            font-size: 11px;
+
+            margin-bottom: 6px;
+        }
+
+        .contact-item a,
+        .contact-item strong {
             font-size: 18px;
+
+            font-weight: 400;
+
+            color: #fff;
         }
 
-        .email {
-            color: #d4af37;
-            font-size: 21px;
+        .contact-box {
+            background: #0b0b0b;
+
+            border: 1px solid #292929;
+
+            padding: 45px;
+        }
+
+        .contact-box h3 {
+            font-family: Georgia, serif;
+
+            font-size: 31px;
+
+            font-weight: 400;
+
+            margin-bottom: 18px;
+        }
+
+        .contact-box p {
+            color: #999;
+
+            line-height: 1.8;
+
             margin-bottom: 30px;
         }
 
-        /* RODAPÉ */
+
+        /* =========================
+           FOOTER
+        ========================= */
 
         footer {
-            padding: 35px 20px;
-            text-align: center;
-            background: #050505;
-            border-top: 1px solid #292929;
-            color: #888;
-            font-size: 14px;
+            background: #070707;
+
+            padding: 35px 0;
+
+            border-top: 1px solid #222;
         }
 
-        footer strong {
-            color: #d4af37;
+        .footer-content {
+            display: flex;
+
+            justify-content: space-between;
+
+            align-items: center;
+
+            gap: 30px;
         }
 
-        /* CELULAR */
+        .footer-logo {
+            font-size: 18px;
 
-        @media (max-width: 800px) {
+            font-weight: bold;
 
-            nav {
-                padding: 16px 20px;
+            letter-spacing: 3px;
+        }
+
+        .footer-logo span {
+            color: var(--dourado);
+        }
+
+        .footer-text {
+            color: #666;
+
+            font-size: 12px;
+
+            text-align: right;
+        }
+
+
+        /* =========================
+           RESPONSIVO
+        ========================= */
+
+        @media (max-width: 900px) {
+
+            nav ul {
+                gap: 15px;
+            }
+
+            nav a {
+                font-size: 12px;
+            }
+
+            .about-grid,
+            .difference-grid,
+            .contact-grid {
+                grid-template-columns: 1fr;
+                gap: 45px;
+            }
+
+            .services-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .process-grid {
+                grid-template-columns: 1fr 1fr;
+            }
+
+            .projects-grid {
+                grid-template-columns: 1fr 1fr;
+            }
+
+            .project-card:first-child {
+                min-height: 350px;
+            }
+
+            .services-header {
+                display: block;
+            }
+        }
+
+
+        @media (max-width: 650px) {
+
+            header {
+                position: absolute;
+            }
+
+            .nav {
+                min-height: 72px;
+            }
+
+            .logo {
+                font-size: 18px;
+                letter-spacing: 3px;
             }
 
             nav ul {
                 display: none;
             }
 
-            .cards,
-            .steps {
-                grid-template-columns: 1fr;
+            .hero {
+                min-height: 100vh;
+            }
+
+            .hero-content {
+                padding-top: 100px;
+            }
+
+            .hero-small {
+                font-size: 11px;
+                letter-spacing: 2px;
             }
 
             .hero h1 {
-                font-size: 48px;
+                font-size: 47px;
             }
 
-            .hero p {
-                font-size: 17px;
+            .hero-text {
+                font-size: 16px;
             }
 
-            .section-title h2 {
-                font-size: 34px;
+            .btn {
+                width: 100%;
+            }
+
+            .btn-outline {
+                margin-left: 0;
+                margin-top: 10px;
+            }
+
+            section {
+                padding: 80px 0;
+            }
+
+            .section-title {
+                font-size: 38px;
+            }
+
+            .numbers-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .process-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .projects-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .project-card,
+            .project-card:first-child {
+                min-height: 280px;
+            }
+
+            .contact-box {
+                padding: 30px;
+            }
+
+            .footer-content {
+                flex-direction: column;
+                align-items: flex-start;
+            }
+
+            .footer-text {
+                text-align: left;
             }
         }
+
     </style>
 </head>
 
+
 <body>
 
-<header>
-    <nav>
-        <div class="logo">CONSTRUALIZE</div>
 
-        <ul>
-            <li><a href="#sobre">A Construalize</a></li>
-            <li><a href="#servicos">Serviços</a></li>
-            <li><a href="#processo">Como trabalhamos</a></li>
-            <li><a href="#contato">Contato</a></li>
-        </ul>
-    </nav>
+<!-- =========================
+     HEADER
+========================= -->
+
+<header>
+
+    <div class="container nav">
+
+        <a href="#inicio" class="logo">
+            CONSTR<span>U</span>ALIZE
+        </a>
+
+        <nav>
+
+            <ul>
+
+                <li>
+                    <a href="#sobre">A Construalize</a>
+                </li>
+
+                <li>
+                    <a href="#servicos">Serviços</a>
+                </li>
+
+                <li>
+                    <a href="#processo">Como trabalhamos</a>
+                </li>
+
+                <li>
+                    <a href="#projetos">Projetos</a>
+                </li>
+
+                <li>
+                    <a href="#contato" class="nav-button">Contato</a>
+                </li>
+
+            </ul>
+
+        </nav>
+
+    </div>
+
 </header>
 
 
-<main>
 
-    <!-- HERO -->
+<!-- =========================
+     HERO
+========================= -->
 
-    <section class="hero">
+<section class="hero" id="inicio">
+
+    <div class="container">
 
         <div class="hero-content">
 
-            <small>Construção • Reformas • Gestão de Obras</small>
+            <div class="hero-small">
+                Construção • Reformas • Gestão de Obras
+            </div>
 
             <h1>
                 Construa o seu
@@ -378,271 +1114,805 @@
                 no mundo.
             </h1>
 
-            <p>
-                Transformamos sonhos em espaços para viver,
-                construir histórias e chamar de seu.
+            <p class="hero-text">
+                Mais do que construir ou reformar, transformamos
+                aquilo que você imagina em um lugar que realmente
+                tenha a sua identidade.
             </p>
 
-            <div class="tagline">
-                Construa • Realize • Construalize
+            <div class="hero-tagline">
+                Construa
+                <span>•</span>
+                Realize
+                <span>•</span>
+                Construalize
             </div>
 
-            <a href="#contato" class="button">
+            <a href="#contato" class="btn btn-gold">
                 Fale conosco
             </a>
 
-        </div>
-
-    </section>
-
-
-    <!-- SOBRE -->
-
-    <section class="about" id="sobre">
-
-        <div class="container">
-
-            <div class="section-title">
-                <span>Sobre nós</span>
-                <h2>O seu sonho é o nosso projeto.</h2>
-            </div>
-
-            <div class="about-content">
-
-                <p>
-                    Algumas pessoas viajam quilômetros para conhecer
-                    lugares extraordinários. Nós acreditamos que você
-                    também pode construir o seu.
-                </p>
-
-                <br>
-
-                <p>
-                    Na <strong>Construalize</strong>, não existe um padrão
-                    de certo ou errado. Existe aquilo que faz sentido
-                    para você, para sua família e para a vida que deseja viver.
-                </p>
-
-                <br>
-
-                <p>
-                    Nosso propósito é transformar aquilo que você
-                    imagina em um espaço real, bonito, funcional e
-                    verdadeiramente seu.
-                </p>
-
-            </div>
-
-        </div>
-
-    </section>
-
-
-    <!-- SERVIÇOS -->
-
-    <section class="services" id="servicos">
-
-        <div class="container">
-
-            <div class="section-title">
-                <span>O que fazemos</span>
-                <h2>Nossos serviços</h2>
-            </div>
-
-            <div class="cards">
-
-                <div class="card">
-                    <div class="card-number">01</div>
-                    <h3>Construção</h3>
-                    <p>
-                        Da ideia ao espaço pronto para receber
-                        as histórias que você deseja viver.
-                    </p>
-                </div>
-
-                <div class="card">
-                    <div class="card-number">02</div>
-                    <h3>Reformas</h3>
-                    <p>
-                        Transformamos ambientes existentes em
-                        lugares que combinam com você.
-                    </p>
-                </div>
-
-                <div class="card">
-                    <div class="card-number">03</div>
-                    <h3>Gestão de Obras</h3>
-                    <p>
-                        Organização, acompanhamento e gestão
-                        para tornar sua obra mais tranquila e segura.
-                    </p>
-                </div>
-
-            </div>
-
-        </div>
-
-    </section>
-
-
-    <!-- PROCESSO -->
-
-    <section class="process" id="processo">
-
-        <div class="container">
-
-            <div class="section-title">
-                <span>Nosso processo</span>
-                <h2>Do sonho à realidade.</h2>
-            </div>
-
-            <div class="steps">
-
-                <div class="step">
-                    <div class="step-number">1</div>
-                    <h3>Você conta</h3>
-                    <p>
-                        Compartilha conosco o que imagina
-                        para o seu espaço.
-                    </p>
-                </div>
-
-                <div class="step">
-                    <div class="step-number">2</div>
-                    <h3>Nós planejamos</h3>
-                    <p>
-                        Organizamos as etapas, necessidades
-                        e soluções para sua obra.
-                    </p>
-                </div>
-
-                <div class="step">
-                    <div class="step-number">3</div>
-                    <h3>Nós realizamos</h3>
-                    <p>
-                        Transformamos o planejamento em
-                        um espaço real.
-                    </p>
-                </div>
-
-                <div class="step">
-                    <div class="step-number">4</div>
-                    <h3>Acompanhamos</h3>
-                    <p>
-                        Gestão e acompanhamento durante
-                        a execução da obra.
-                    </p>
-                </div>
-
-                <div class="step">
-                    <div class="step-number">5</div>
-                    <h3>Cuidamos</h3>
-                    <p>
-                        Atenção aos detalhes para que
-                        tudo aconteça com organização.
-                    </p>
-                </div>
-
-                <div class="step">
-                    <div class="step-number">6</div>
-                    <h3>Você aproveita</h3>
-                    <p>
-                        Finalmente, o lugar que antes
-                        existia apenas na sua imaginação.
-                    </p>
-                </div>
-
-            </div>
-
-        </div>
-
-    </section>
-
-
-    <!-- DIFERENCIAL -->
-
-    <section class="difference">
-
-        <div class="container">
-
-            <div class="section-title">
-                <span>Nosso propósito</span>
-                <h2>Construir também é confiar.</h2>
-            </div>
-
-            <div class="difference-text">
-
-                <p>
-                    Sabemos que uma obra pode gerar insegurança.
-                    Prazos, orçamento, profissionais e decisões
-                    importantes fazem parte desse processo.
-                </p>
-
-                <br>
-
-                <p>
-                    Por isso, queremos que você tenha a tranquilidade
-                    de saber que existe uma equipe cuidando do seu projeto
-                    com <strong>organização, transparência e compromisso.</strong>
-                </p>
-
-            </div>
-
-        </div>
-
-    </section>
-
-
-    <!-- CONTATO -->
-
-    <section class="contact" id="contato">
-
-        <div class="container">
-
-            <div class="section-title">
-                <span>Vamos conversar?</span>
-                <h2>Seu sonho pode começar aqui.</h2>
-            </div>
-
-            <p>
-                Conte para nós o que você deseja construir,
-                reformar ou transformar.
-            </p>
-
-            <div class="email">
-                construalize@gmail.com
-            </div>
-
-            <a
-                href="https://wa.me/"
-                class="button"
-                target="_blank"
-            >
-                Falar pelo WhatsApp
+            <a href="#servicos" class="btn btn-outline">
+                Conheça nossos serviços
             </a>
 
         </div>
 
-    </section>
+    </div>
 
-</main>
+</section>
 
+
+
+<!-- =========================
+     SOBRE
+========================= -->
+
+<section class="about" id="sobre">
+
+    <div class="container">
+
+        <div class="about-grid">
+
+            <div>
+
+                <div class="section-label">
+                    A Construalize
+                </div>
+
+                <h2 class="section-title">
+                    O seu sonho.
+                    <span>O nosso compromisso.</span>
+                </h2>
+
+                <p class="section-text">
+                    Existem lugares que nos fazem parar e pensar:
+                    “É exatamente aqui que eu gostaria de estar.”
+                </p>
+
+            </div>
+
+
+            <div class="about-box">
+
+                <p>
+                    A Construalize nasceu com uma ideia simples:
+                    ajudar cada pessoa a transformar o espaço que
+                    imagina no espaço que realmente deseja viver.
+                </p>
+
+                <p>
+                    Para nós, não existe um padrão único de certo
+                    ou errado. Existe aquilo que faz sentido para
+                    você, para a sua rotina, para a sua família e
+                    para a sua história.
+                </p>
+
+                <div class="quote">
+                    Não construímos apenas
+                    <span>paredes.</span>
+                    Construímos lugares para
+                    <span>viver.</span>
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+
+<!-- =========================
+     NÚMEROS / POSICIONAMENTO
+========================= -->
+
+<section class="numbers">
+
+    <div class="container">
+
+        <div class="numbers-grid">
+
+            <div class="number-box">
+
+                <strong>01</strong>
+
+                <span>
+                    Seu sonho como ponto de partida
+                </span>
+
+            </div>
+
+
+            <div class="number-box">
+
+                <strong>02</strong>
+
+                <span>
+                    Planejamento e acompanhamento
+                </span>
+
+            </div>
+
+
+            <div class="number-box">
+
+                <strong>03</strong>
+
+                <span>
+                    Transparência em cada etapa
+                </span>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+
+<!-- =========================
+     SERVIÇOS
+========================= -->
+
+<section class="services" id="servicos">
+
+    <div class="container">
+
+        <div class="services-header">
+
+            <div>
+
+                <div class="section-label">
+                    O que fazemos
+                </div>
+
+                <h2 class="section-title">
+                    Soluções para transformar
+                    <span>espaços.</span>
+                </h2>
+
+            </div>
+
+            <p class="section-text">
+                Do planejamento à execução, cuidamos para que
+                cada etapa da obra tenha organização,
+                acompanhamento e propósito.
+            </p>
+
+        </div>
+
+
+        <div class="services-grid">
+
+
+            <article class="service-card">
+
+                <div class="service-number">
+                    01 / CONSTRUÇÃO
+                </div>
+
+                <h3>
+                    Construção
+                </h3>
+
+                <p>
+                    Tiramos o projeto do papel e transformamos
+                    ideias em espaços pensados para você.
+                    Cada etapa é planejada para que o resultado
+                    final faça sentido com aquilo que foi imaginado.
+                </p>
+
+            </article>
+
+
+            <article class="service-card">
+
+                <div class="service-number">
+                    02 / REFORMAS
+                </div>
+
+                <h3>
+                    Reformas
+                </h3>
+
+                <p>
+                    Renovamos ambientes, corrigimos problemas
+                    e transformamos espaços existentes para que
+                    eles se tornem novamente lugares onde você
+                    tenha prazer em estar.
+                </p>
+
+            </article>
+
+
+            <article class="service-card">
+
+                <div class="service-number">
+                    03 / GESTÃO
+                </div>
+
+                <h3>
+                    Gestão de Obras
+                </h3>
+
+                <p>
+                    Organização, acompanhamento e controle das
+                    etapas da obra para proporcionar mais clareza,
+                    segurança e tranquilidade durante o processo.
+                </p>
+
+            </article>
+
+
+        </div>
+
+    </div>
+
+</section>
+
+
+
+<!-- =========================
+     DIFERENCIAIS
+========================= -->
+
+<section class="difference">
+
+    <div class="container">
+
+        <div class="difference-grid">
+
+
+            <div>
+
+                <div class="section-label">
+                    Por que Construalize?
+                </div>
+
+                <h2 class="section-title">
+                    Construir também é
+                    <span>confiar.</span>
+                </h2>
+
+                <p class="section-text">
+                    Sabemos que contratar uma obra pode gerar
+                    insegurança. Por isso, acreditamos que
+                    transparência, organização e compromisso
+                    devem fazer parte de todo o processo.
+                </p>
+
+            </div>
+
+
+            <div class="difference-list">
+
+
+                <div class="difference-item">
+
+                    <div class="difference-icon">
+                        ◆
+                    </div>
+
+                    <div>
+
+                        <h3>
+                            Transparência
+                        </h3>
+
+                        <p>
+                            Clareza nas informações e no
+                            acompanhamento de cada etapa.
+                        </p>
+
+                    </div>
+
+                </div>
+
+
+                <div class="difference-item">
+
+                    <div class="difference-icon">
+                        ◆
+                    </div>
+
+                    <div>
+
+                        <h3>
+                            Organização
+                        </h3>
+
+                        <p>
+                            Planejamento para que a obra
+                            tenha direção e propósito.
+                        </p>
+
+                    </div>
+
+                </div>
+
+
+                <div class="difference-item">
+
+                    <div class="difference-icon">
+                        ◆
+                    </div>
+
+                    <div>
+
+                        <h3>
+                            Compromisso
+                        </h3>
+
+                        <p>
+                            Responsabilidade com aquilo que
+                            foi combinado e com o resultado final.
+                        </p>
+
+                    </div>
+
+                </div>
+
+
+                <div class="difference-item">
+
+                    <div class="difference-icon">
+                        ◆
+                    </div>
+
+                    <div>
+
+                        <h3>
+                            Proximidade
+                        </h3>
+
+                        <p>
+                            Você acompanha o processo e entende
+                            o que está acontecendo em sua obra.
+                        </p>
+
+                    </div>
+
+                </div>
+
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+
+<!-- =========================
+     PROCESSO
+========================= -->
+
+<section class="process" id="processo">
+
+    <div class="container">
+
+        <div class="section-label">
+            Como trabalhamos
+        </div>
+
+        <h2 class="section-title">
+            Do primeiro contato
+            <span>ao seu novo espaço.</span>
+        </h2>
+
+        <p class="section-text">
+            Cada obra começa com uma conversa. A partir dela,
+            organizamos as próximas etapas para transformar
+            o seu desejo em realidade.
+        </p>
+
+
+        <div class="process-grid">
+
+
+            <div class="process-item">
+
+                <div class="process-number">
+                    01
+                </div>
+
+                <h3>
+                    Você conta
+                </h3>
+
+                <p>
+                    Entendemos o que você deseja,
+                    suas necessidades e suas ideias.
+                </p>
+
+            </div>
+
+
+            <div class="process-item">
+
+                <div class="process-number">
+                    02
+                </div>
+
+                <h3>
+                    Nós planejamos
+                </h3>
+
+                <p>
+                    Organizamos as informações e
+                    estruturamos os próximos passos.
+                </p>
+
+            </div>
+
+
+            <div class="process-item">
+
+                <div class="process-number">
+                    03
+                </div>
+
+                <h3>
+                    Apresentamos
+                </h3>
+
+                <p>
+                    Você entende o que será realizado
+                    antes de avançarmos.
+                </p>
+
+            </div>
+
+
+            <div class="process-item">
+
+                <div class="process-number">
+                    04
+                </div>
+
+                <h3>
+                    Nós realizamos
+                </h3>
+
+                <p>
+                    A equipe executa o trabalho
+                    planejado.
+                </p>
+
+            </div>
+
+
+            <div class="process-item">
+
+                <div class="process-number">
+                    05
+                </div>
+
+                <h3>
+                    Acompanhamos
+                </h3>
+
+                <p>
+                    A obra é acompanhada para manter
+                    organização e qualidade.
+                </p>
+
+            </div>
+
+
+            <div class="process-item">
+
+                <div class="process-number">
+                    06
+                </div>
+
+                <h3>
+                    Você aproveita
+                </h3>
+
+                <p>
+                    O espaço deixa de ser apenas uma
+                    ideia e passa a fazer parte da sua vida.
+                </p>
+
+            </div>
+
+
+        </div>
+
+    </div>
+
+</section>
+
+
+
+<!-- =========================
+     PROJETOS
+========================= -->
+
+<section class="projects" id="projetos">
+
+    <div class="container">
+
+        <div class="section-label">
+            Projetos
+        </div>
+
+        <h2 class="section-title">
+            Espaços que podem
+            <span>contar histórias.</span>
+        </h2>
+
+        <p class="section-text">
+            Esta área será destinada aos projetos e obras
+            realizados pela Construalize.
+        </p>
+
+
+        <div class="projects-grid">
+
+
+            <div class="project-card">
+
+                <div class="project-content">
+
+                    <small>
+                        Projeto em destaque
+                    </small>
+
+                    <h3>
+                        Seu próximo projeto pode estar aqui.
+                    </h3>
+
+                </div>
+
+            </div>
+
+
+            <div class="project-card">
+
+                <div class="project-content">
+
+                    <small>
+                        Reformas
+                    </small>
+
+                    <h3>
+                        Transformação de ambientes
+                    </h3>
+
+                </div>
+
+            </div>
+
+
+            <div class="project-card">
+
+                <div class="project-content">
+
+                    <small>
+                        Construção
+                    </small>
+
+                    <h3>
+                        Do projeto à realidade
+                    </h3>
+
+                </div>
+
+            </div>
+
+
+            <div class="project-card">
+
+                <div class="project-content">
+
+                    <small>
+                        Gestão de Obras
+                    </small>
+
+                    <h3>
+                        Organização em cada etapa
+                    </h3>
+
+                </div>
+
+            </div>
+
+
+            <div class="project-card">
+
+                <div class="project-content">
+
+                    <small>
+                        Construalize
+                    </small>
+
+                    <h3>
+                        Lugares para chamar de seu.
+                    </h3>
+
+                </div>
+
+            </div>
+
+
+        </div>
+
+
+        <p class="projects-note">
+            Em breve, esta seção poderá receber fotos reais
+            dos projetos e obras da Construalize.
+        </p>
+
+    </div>
+
+</section>
+
+
+
+<!-- =========================
+     CTA
+========================= -->
+
+<section class="cta">
+
+    <div class="container">
+
+        <h2>
+            Talvez o lugar que você
+            <span>imagina</span>
+            ainda não exista.
+        </h2>
+
+        <p>
+            Mas ele pode começar com uma conversa.
+            Conte para nós o que você tem em mente.
+        </p>
+
+        <a href="#contato" class="btn btn-gold">
+            Começar uma conversa
+        </a>
+
+    </div>
+
+</section>
+
+
+
+<!-- =========================
+     CONTATO
+========================= -->
+
+<section class="contact" id="contato">
+
+    <div class="container">
+
+        <div class="contact-grid">
+
+
+            <div>
+
+                <div class="section-label">
+                    Contato
+                </div>
+
+                <h2 class="section-title">
+                    Vamos transformar
+                    <span>seu sonho em projeto?</span>
+                </h2>
+
+                <p class="section-text">
+                    Entre em contato com a Construalize.
+                    Será um prazer conhecer sua ideia e
+                    entender como podemos ajudar.
+                </p>
+
+
+                <div class="contact-info">
+
+
+                    <div class="contact-item">
+
+                        <small>
+                            E-mail
+                        </small>
+
+                        <a href="mailto:construalize@gmail.com">
+                            construalize@gmail.com
+                        </a>
+
+                    </div>
+
+
+                    <div class="contact-item">
+
+                        <small>
+                            Atendimento
+                        </small>
+
+                        <strong>
+                            Construção • Reformas • Gestão de Obras
+                        </strong>
+
+                    </div>
+
+
+                </div>
+
+            </div>
+
+
+            <div class="contact-box">
+
+                <h3>
+                    Conte-nos o que você está imaginando.
+                </h3>
+
+                <p>
+                    Pode ser uma construção, uma reforma,
+                    uma transformação de ambiente ou simplesmente
+                    uma ideia que ainda está no papel.
+                </p>
+
+                <a
+                    href="mailto:construalize@gmail.com"
+                    class="btn btn-gold"
+                >
+                    Enviar mensagem
+                </a>
+
+            </div>
+
+
+        </div>
+
+    </div>
+
+</section>
+
+
+
+<!-- =========================
+     FOOTER
+========================= -->
 
 <footer>
 
-    <p>
-        <strong>CONSTRUALIZE</strong>
-    </p>
+    <div class="container">
 
-    <p>
-        Construção • Reformas • Gestão de Obras
-    </p>
+        <div class="footer-content">
 
-    <p>
-        © 2026 Construalize. Todos os direitos reservados.
-    </p>
+
+            <div class="footer-logo">
+                CONSTR<span>U</span>ALIZE
+            </div>
+
+
+            <div class="footer-text">
+
+                Construção • Reformas • Gestão de Obras<br>
+
+                Construa • Realize • Construalize<br><br>
+
+                © 2026 Construalize. Todos os direitos reservados.
+
+            </div>
+
+
+        </div>
+
+    </div>
 
 </footer>
+
 
 </body>
 </html>
